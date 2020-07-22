@@ -1,0 +1,22 @@
+---
+title: "Ardusimple Simple Rtk2b Bluetooth"
+date: 2020-03-09
+description: "How to make Bluetooth work on a Ardusimple simpleRTK2B with the Long Range Starter Kit."
+draft: false
+tags: [
+    "gnss",
+    "arduino",
+]
+images:
+  - src: img/2020/06/ardusimple-with-bluetooth.jpg
+    alt: sucker
+    stretch: vertical
+---
+
+When you need high precision Global Navigation Satellite System (GNSS) support, one of the best economical choices is the Ardusimple simpleRTK2B. I am using the Long Range Starter Kit that consists of a base station and a rover. By using 2 simpleRTK2B boards that communicate with each other, I am able to take advantage of Real-Time Kinematic (RTK) positioning which gives me centimeter accuracy. The simpleRTK2B has a convenient connector for Xbee radio modules which in my case is used for the long range radio. However, I would also love to use the XBee Bluetooth Module on the rover. That way I don't have to connect my Android-based smartphone via USB cable, but can also conveniently connect to the simpleRTK2B via Bluetooth. Unfortunately, for this use-case I have to wire up the XBee Bluetooth Module manually as there is only a single Xbee radio slot. The documentation on this was a bit sparse but the following pointers were useful:
+
+- simpleRTK2B connection to smartphone via Bluetooth
+- Support question: With the simpleRTK2B – Can you simultaneously have a base + rover configuration AND connect to you Android device via Bluetooth at the same time?
+
+I finally got everything working with the following wiring. The one thing that feels a bit odd is the need to also connect the 3.3V OUT on the simpleRTK2B to its IOREF pin.
+
