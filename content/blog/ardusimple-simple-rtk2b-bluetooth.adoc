@@ -7,6 +7,7 @@ tags: [
     "gnss",
     "arduino",
 ]
+categories: ["technology"]
 images:
   - src: img/2020/06/ardusimple-with-bluetooth.jpg
     alt: sucker

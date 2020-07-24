@@ -98,20 +98,30 @@ disableLanguages        = [""]
     url               = "/blog/"
     pre               = "<i class='far fa-newspaper'></i>"
     weight            = 3
-
+  [[menu.main]]
+    name              = "Kona Coffee"
+    identifier        = "coffee"
+    url               = "https://coffee.hillert.com"
+    pre               = "<i class='fa fa-coffee'></i>"
+    weight            = 4
   [[menu.main]]
     name              = "Categories"
     identifier        = "categories"
     url               = "/categories/"
     pre               = "<i class='fas fa-sitemap'></i>"
     weight            = 5
-
+  [[menu.main]]
+    name              = "Tags"
+    identifier        = "tags"
+    url               = "/tags/"
+    pre               = "<i class='fas fa-sitemap'></i>"
+    weight            = 6
   [[menu.main]]
     name              = "Contact"
     identifier        = "contact"
     url               = "/contact/"
-    pre               = "<i class='far fa-envelope'></i>"
-    weight            = 6
+    pre               = "<i class='fa fa-tags'></i>"
+    weight            = 7
 
 [Languages]
 
@@ -154,13 +164,18 @@ disableLanguages        = [""]
       url               = "/categories/"
       pre               = "<i class='fas fa-sitemap'></i>"
       weight            = 5
-
+    [[Languages.de.menu.main]]
+      name              = "Tags"
+      identifier        = "tags"
+      url               = "/tags/"
+      pre               = "<i class='fas fa-sitemap'></i>"
+      weight            = 6
     [[Languages.de.menu.main]]
       name              = "Kontakt"
       identifier        = "contact"
       url               = "/contact/"
       pre               = "<i class='far fa-envelope'></i>"
-      weight            = 6
+      weight            = 7
 
   [Languages.es]
     LanguageCode        = "es"

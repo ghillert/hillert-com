@@ -1,0 +1,21 @@
+---
+title: "Asciidoc, Hugo, GitHub Actions"
+date: 2020-07-23
+description: "Switching over to use Asciidoctor for my blog posts using Hugo. Using GitHub Actions for Continuous Deployment."
+draft: false
+tags: [
+    "blogging",
+    "continuous-deployment",
+    "asciidoc"
+]
+categories: ["technology"]
+images:
+  - src: img/2020/07/hugo.png
+    alt: Image of the HUGO website
+    stretch: vertical
+---
+
+TBD :-)
+
+https://github.com/git-ftp/git-ftp
+

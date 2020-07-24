@@ -1,0 +1,65 @@
++++
+title = "About"
+description = "Gunnar Hillert"
+author = "Gunnar Hillert"
+date = "2019-07-23"
+layout = "about"
++++
+
+As a full-stack software developer with 15 years of experience I have been building full-stack web applications using leading edge technologies involving all application layers. I am an open source committer, conference speaker and developer community organizer. In my prior career, I was an EAI/EDI solution architect focussed on messagng standard such as ANSI X12 and EDIFACT. In 2019 I finished the Kona IRONMAN in Hawaii in 12h 41min.
+
+## Contributions to OSS
+
+* https://github.com/ktuukkan/marine-api[Java Marine API] - Contributor
+* https://spring.io/projects/spring-integration[Spring Integration] - Formerly Member of the core team
+  - https://spring.io/blog/2016/01/12/spring-integration-zip-1-0-0-m1-and-others[Creator of the Spring Integration Zip] component
+* https://projects.spring.io/spring-xd/[Spring XD] - Formerly Member of the core team
+* https://spring.io/projects/spring-cloud-dataflow[Spring Cloud Data Flow] - Formerly Member of the core team
+* https://spring.io/blog/2011/09/22/rapid-cloud-foundry-deployments-with-maven/[Cloud Foundry Maven Plugin - Original Creator]
+* DevNexus Web Application - Original Creator
+* jRecruiter - Creator
+
+## List of Presentations
+
+* **SpringOne Platform 2017** Migrating to Angular 5 for Spring Developers
+* **Atlanta Java Users Group 2015** https://www.slideshare.net/hillert/the-spring-update[The Spring Update]
+* **SpringOne2GX 2015** https://www.slideshare.net/hillert/s2gx2015-who-needs-batch[Who Needs Batch]
+* **SpringOne2GX 2014** https://www.slideshare.net/hillert/spring-batch-performance-tuning-s2gx2014[Spring Batch Performance Tuning]
+* **SpringOne2GX 2014** https://www.slideshare.net/hillert/angularjs-with-spring-s2gx2014[Creating Modular Test-Driven SPAs with Spring and AngularJS]
+* **https://www.meetup.com/AtlantaSpring/events/187509862/[Atlanta Spring User Group 2014]** https://www.slideshare.net/hillert/modular-test-driven-spas-with-spring-and-angularjs[Creating Modular Test-driven SPAs with Spring and AngularJS]
+* **Atlanta Java Users Group 2013** https://www.slideshare.net/hillert/atlanta-jug-20130820-spring-batch-integration[Integrating Spring Batch and Spring Integration]
+* **DevNexus 2013** https://www.slideshare.net/hillert/devnexus-2013-introduction-to-websockets[Introduction to WebSockets]
+* **Atlanta Java Users Group 2012** https://www.slideshare.net/hillert/ajug2012websocket[Introduction to WebSockets]
+* **SpringOne2GX 2012** https://www.slideshare.net/hillert/s2gx-2012-spring-project-infrastructure[Spring Projects Infrastructure]
+* **SpringOne2GX 2012** https://www.slideshare.net/hillert/2012-what-is-new-in-spring-integration[What's New in Spring Integration]
+* **SpringOne2GX 2012** https://www.slideshare.net/hillert/introduction-to-spring-integration-and-spring-batch[Introduction to Spring Integration and Spring Batch]
+* **SpringOne2GX 2012** https://www.infoq.com/presentations/Introduction-WebSocket/[Introduction to WebSockets]
+* **Atlanta Java Users Group 2012** https://www.slideshare.net/hillert/spring-projects-infrastructure[Spring Projects Infrastructure]
+* **Java Posse Roundup 2012** Lightning Talk https://www.youtube.com/watch?v=WqbgXdvGsDA[Spring Integration]
+* **https://www.slideshare.net/hillert/cloud-foundry-for-spring-developers[Atlanta Spring User Group 2011]** https://www.slideshare.net/hillert/cloud-foundry-for-spring-developers[Cloud Foundry and SpringOne 2GX 2011 Recap]
+* **Atlanta Java Users Group 2009** https://www.slideshare.net/hillert/jrecruiter-the-ajug-job-posting-service[jRecruiter - The AJUG Job Posting Service]
+
+
+## Screencasts
+
+* https://youtu.be/rz-smoRLcFY[Spring Cloud Data Flow 2.2 - Dashboard Value Adds]
+* https://www.youtube.com/watch?v=x_jRzLOkXro[Spring Cloud Data Flow 1.7.0]
+* https://youtu.be/GZEm86G1WxU[Create Spring Integration Projects with STS (2012)]
+
+## Keynote Preparations
+
+**SpringOne2GX 2015** Major contributor to the https://github.com/springone2gx2015/vehicle-fleet-demo[Vehicle Fleet Demo]
+
+## Blog Posts
+
+### Spring Blog
+
+* https://spring.io/blog/2018/03/19/spring-cloud-data-flow-1-4-0-released[Spring Cloud Data Flow 1.4.0 Released]
+* https://spring.io/blog/2018/02/27/spring-cloud-data-flow-1-4-0-m1-released[Spring Cloud Data Flow 1.4.0 M1 released]
+* https://spring.io/blog/2012/08/23/community-driven-spring-integration-extensions[Community-Driven Spring Integration Extensions]
+* https://spring.io/blog/2012/04/09/create-spring-integration-projects-using-sts[Create Spring Integration Projects using STS]
+* https://spring.io/blog/2012/10/05/what-s-new-in-spring-integration-2-2-part-3-jpa-support[What's New in Spring Integration 2.2 (Part 3 – JPA Support)]
+* https://spring.io/blog/2011/09/22/rapid-cloud-foundry-deployments-with-maven/[Rapid Cloud Foundry Deployments with Maven]
+
+
+
