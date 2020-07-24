@@ -1,6 +1,6 @@
 # For a description of these parameters, please visit the theme wiki.
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
-baseurl                 = "https://hillert.com/"
+baseurl                 = "https://www.hillert.com/"
 DefaultContentLanguage  = "en"
 title                   = "Gunnar Hillert"
 theme                   = "hugo-future-imperfect-slim"
