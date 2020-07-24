@@ -48,5 +48,4 @@ jobs:
         ftp-username: ${{ secrets.SFTP_USERNAME }}
         ftp-password: ${{ secrets.SFTP_PASSWORD }}
         known-hosts: ${{ secrets.KNOWN_HOSTS }}
-        local-dir: public # This folder is NOT going to upload by default unless you add it to .git-ftp-include
-        git-ftp-args:
+        local-dir: public/ # This folder is NOT going to upload by default unless you add it to .git-ftp-include
