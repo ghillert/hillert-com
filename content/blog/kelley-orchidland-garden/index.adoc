@@ -1,0 +1,61 @@
+---
+title: "Visiting Kelley Orchidland Garden"
+date: 2020-07-28
+description: "As part of an event of the Hawaii Island Palm Society (HIPS), I visited the private Kelley Orchidland Garden in the Hilo area of Hawai‘i."
+draft: false
+tags: [
+    "palms",
+    "garden",
+    "nature"
+]
+categories: ["nature"]
+images:
+  - src: blog/kelley-orchidland-garden/garden-vista-3-1760x560.jpg
+    alt: Kelley Orchidland Garden
+    stretch: vertical
+---
+
+As part of an event of the https://www.hawaiiislandpalmsociety.com/[Hawaii Island Palm Society] (HIPS), I visited the private _Kelley Orchidland Garden_ in the Hilo area of Hawai‘i on July 25, 2020. Despite the approaching hurricane Douglas, the weather was spectacular, even sunny, considering that this garden gets around 3800mm of rain annually.
+
+The garden is a great example of what you can accomplish in just a few years. A great selection of plants!
+
+[.float-group]
+--
+.https://www.palmpedia.net/wiki/Archontophoenix_purpurea[Archontophoenix purpurea]
+image::{{< imgPath src="archontophoenix-purpurea-2048px.jpg" width="800x" >}}[Archontophoenix purpurea,400, float="left",align="center"]
+.https://en.wikipedia.org/wiki/Ceiba_pentandra[Ceiba pentandra] (Kapok tree)
+image::{{< imgPath src="ceiba-pentandra-2048px.jpg" width="800x" >}}[Kapok tree,400, float="right",align="center"]
+--
+
+.Garden Vista
+image::{{< imgPath src="garden-vista-2-2048px.jpg" width="1696x" >}}[Garden Vista,100%,align="center"]
+
+[.float-group]
+--
+.http://www.palmpedia.net/wiki/Clinostigma_samoense[Clinostigma samoense]
+image::{{< imgPath src="clinostigma-samoense-2048px.jpg" width="800x" >}}[Clinostigma samoense,400,float="left"]
+.http://www.palmpedia.net/wiki/Johannesteijsmannia_altifrons[Johannesteijsmannia altifrons]
+image::{{< imgPath src="johannesteijsmannia-altifrons-2048px.jpg" width="800x" >}}[Johannesteijsmannia altifrons,400,float="right"]
+--
+
+.Another Garden Vista
+image::{{< imgPath src="garden-vista-1-2048px.jpg" width="1696x" >}}[Another Garden Vista,100%,,align="center"]
+
+[.float-group]
+--
+.https://www.palmpedia.net/wiki/Kerriodoxa_elegans[Kerridoxa elegans]
+image::{{< imgPath src="kerridoxa-elegans-2048px.jpg" width="800x" >}}[Kerridoxa elegans,400,float="left"]
+.https://www.palmpedia.net/wiki/Marojejya_darianii[Marojejya darianii]
+image::{{< imgPath src="marojejya-darianii-2048px.jpg" width="800x" >}}[Marojejya darianii,400,float="right"]
+--
+
+.https://www.palmpedia.net/wiki/Sabinaria_magnifica[Sabinaria magnifica]
+image::{{< imgPath src="sabinaria-magnifica-2048px.jpg" width="1696x" >}}[Sabinaria magnifica,100%,align="center"]
+
+[.float-group]
+--
+.https://www.palmpedia.net/wiki/Metroxylon_amicarum[Metroxylon amicarum]
+image::{{< imgPath src="metroxylon-amicarum-2048px.jpg" width="800x" >}}[Metroxylon amicarum,400,float="left"]
+.https://en.wikipedia.org/wiki/Warszewiczia_coccinea[Warszewiczia coccinea]
+image::{{< imgPath src="warszewiczia-coccinea-2048px.jpg" width="800x" >}}[Warszewiczia coccinea,400,float="right"]
+--

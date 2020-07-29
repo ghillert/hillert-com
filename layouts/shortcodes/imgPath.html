@@ -1,0 +1,5 @@
+{{- $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) -}}
+{{- $width := .Get "width" -}}
+{{- .Scratch.Set "resizedImage" ($src.Resize $width) -}}
+{{- $resizedImage := .Scratch.Get "resizedImage" -}}
+{{- $resizedImage.RelPermalink -}}

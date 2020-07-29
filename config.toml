@@ -5,8 +5,8 @@ DefaultContentLanguage  = "en"
 title                   = "Gunnar Hillert"
 theme                   = "hugo-future-imperfect-slim"
 paginate                = 3
-disqusShortname         = ""
-googleAnalytics         = ""
+disqusShortname         = "hillert"
+googleAnalytics         = "UA-177507-1"
 pluralizeListTitles     = false
 disableLanguages        = [""]
 
