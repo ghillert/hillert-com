@@ -2,7 +2,7 @@
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
 baseurl                 = "https://www.hillert.com/"
 DefaultContentLanguage  = "en"
-title                   = "Gunnar Hillert"
+title                   = "Website of Gunnar Hillert"
 theme                   = "hugo-future-imperfect-slim"
 paginate                = 3
 disqusShortname         = "hillert"
@@ -23,10 +23,10 @@ disableLanguages        = [""]
   viewMorePostsLink     = "/blog/"
   readingTime           = true
   socialShare           = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
+  description           = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
+  images                = ["/img/main/logo.jpg"]
 
   [params.meta]
-    description         = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
-    author              = "HTML5UP and Hugo"
     favicon             = false
     svg                 = true
     faviconVersion      = "1"

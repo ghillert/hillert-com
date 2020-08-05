@@ -16,8 +16,8 @@ As a full-stack software developer with 15 years of experience I have been build
 * https://projects.spring.io/spring-xd/[Spring XD] - Formerly Member of the core team
 * https://spring.io/projects/spring-cloud-dataflow[Spring Cloud Data Flow] - Formerly Member of the core team
 * https://spring.io/blog/2011/09/22/rapid-cloud-foundry-deployments-with-maven/[Cloud Foundry Maven Plugin - Original Creator]
-* DevNexus Web Application - Original Creator
-* jRecruiter - Creator
+* https://github.com/ghillert/devnexus-site[DevNexus Web Application] - Original Creator
+* https://github.com/ghillert/jrecruiter[jRecruiter] - Creator
 
 ## List of Presentations
 
