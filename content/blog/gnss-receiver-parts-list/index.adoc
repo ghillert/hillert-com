@@ -1,0 +1,58 @@
+---
+title: "Building your own GNSS receiver"
+date: 2020-09-06
+description: "In this blog post I am listing the parts that I have been using to build a high-precission GNSS receiver."
+draft: false
+tags: [
+    "gnss",
+    "gps",
+    "android"
+]
+categories: ["technology"]
+images:
+  - src: blog/gnss-receiver-parts-list/base-station-rover-1760x560.jpg
+    alt: Base Station & Rover
+    stretch: vertical
+---
+
+Over the past couple of weeks and months I have been avaluating and building a somewhat affordable high precission
+https://www.gsa.europa.eu/european-gnss/what-gnss[GNSS] solution to achieve centimeter-level accuracy in order to track the collection of plants in my garden. I am not going much deeper into the functional aspects of the project. For that please refer to my recent https://www.slideshare.net/hillert/high-precision-gps-positioning-for-spring-developers[presentation slides] from SpringOne 2020. But I will provide a list of parts that I used to build the project.
+
+Almost all items were ordered via Amazon or https://www.ardusimple.com/[Ardusimple].
+
+As there are no usable https://en.wikipedia.org/wiki/Networked_Transport_of_RTCM_via_Internet_Protocol[NTRIP] servers here for in Hawaii, I have to use a Base Station + Rover (Field device) setup. I started out with the https://www.ardusimple.com/product/simplertk2b-starter-kit-lr-ip65/[Ardusimple simpleRTK2B - Starter Kit LR], which is a good way to get started (The also come pre-configurred) but I ultimately upgraded my antennas for the Survey GNSS Multiband antennas as they can be more easily mounted on the surveyor pole and standard tri-pods. So here is my current setup:
+
+== Base Station
+
+- https://www.ardusimple.com/product/simplertk2b/[Ardusimple simpleRTK2B]
+- https://www.ardusimple.com/product/calibrated-survey-gnss-multiband-antenna-ip67/[Calibrated Survey GNSS Multiband antenna (IP67)]
+- https://www.ardusimple.com/product/adapter-survey-gnss-multiband-antenna/[Thread adapter for Survey antenna] (For mounting on tri-pod)
+- https://www.ardusimple.com/product/stand-survey-antenna/[Stand for Survey GNSS Multiband antenna]
+
+- https://www.amazon.com/gp/product/B07CG2VGWG[Male to Female USB Cable with On/Off Switch]
+- https://www.amazon.com/gp/product/B07G14GK61[7m Extension Cable (RG58)]
+- https://www.amazon.com/gp/product/B000VZM8MM[Pelican 1020 Micro Case]
+- https://www.amazon.com/gp/product/B00CVQ3XLY[RF coaxial Coax Adapter SMA Female to RP-SMA Male]
+- https://www.amazon.com/gp/product/B07V82XN34[20cm SMA Extension Cable]
+- Ultra compact (flat) USB power bank (E.g. 5000mAh is sufficient)
+
+== Rover (Field device)
+
+- https://www.ardusimple.com/product/simplertk2b/[Ardusimple simpleRTK2B]
+- https://www.ardusimple.com/product/bluetooth-module/[Bluetooth module]
+- https://www.ardusimple.com/product/survey-gnss-multiband-antenna/[Survey GNSS Multiband antenna (IP66)]
+- https://www.ardusimple.com/product/pole-for-survey-gnss-antenna/[Pole for survey GNSS antenna]
+- https://www.ardusimple.com/product/shield-for-second-xbee-socket/[Shield for second XBee Socket]
+- Ultra compact (flat) USB power bank (E.g. 5000mAh is sufficient)
+
+- https://www.amazon.com/gp/product/B071VQJR4P[Micro USB Cable Y Splitter]
+- https://www.amazon.com/gp/product/B079Z1CH9B[Metal Bike & Motorcycle Phone Mount]
+- https://www.amazon.com/gp/product/B001OF5TII[Pelican 1060 Micro Case] (The Pelican 1020 would be sufficient)
+- https://www.amazon.com/gp/product/B07CG2VGWG[Male to Female USB Cable with On/Off Switch]
+- https://www.amazon.com/gp/product/B00CVQ3XLY[RF coaxial Coax Adapter SMA Female to RP-SMA Male]
+- Ultra compact (flat) USB power bank (E.g. 5000mAh is sufficient)
+
+As I am using the Ardusimple Shield for second XBee Socket with a first generation simpleRTK2B, I need to provide power to both boards and therefore the use of the https://www.amazon.com/gp/product/B071VQJR4P[Micro USB Cable Y Splitter].
+
+With the latest versions of the simpleRTK2B board, this is not needed. Also, if you wire the https://www.ardusimple.com/product/bluetooth-module/[Bluetooth module] manually without using the shield, you only need power once, also. That is of course a slightly less clean design. Some wiring instruction are available in 
++++<a href="{{< ref "/blog/ardusimple-simple-rtk2b-bluetooth" >}}">another blog post of mine</a>+++.
