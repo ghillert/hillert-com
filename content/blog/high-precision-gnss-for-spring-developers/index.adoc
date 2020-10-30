@@ -1,0 +1,36 @@
+---
+title: "High-Precision GPS Positioning for Spring Developers"
+date: 2020-10-29
+description: "You have GPS tracking requirements in areas such as autonomous vehicles, robotics or precision farming, but realize that phones are not accurate enough. You also wish Google Maps and OpenStreetMap had a way higher zoom level. What are your options?"
+draft: false
+tags: [
+    "gnss",
+    "gps",
+    "java",
+    "spring"
+]
+categories: ["technology", "nature"]
+images:
+  - src: blog/high-precision-gnss-for-spring-developers/title-image-high-precision-gps-1760x560.jpg
+    alt: Presentation slides cover
+    stretch: vertical
+---
+
+In September, I was presenting at https://springone.io/[SpringOne 2020] on the subject of high-precision GPS for Spring Developers. It was the culmination of several months of research, development and just fun geeking out for a topic that I deeply care about. Below, please find find all the relevant artifacts, such as video recording, slide-deck and links to the demo code.
+
+== Slide Deck
+
++++<iframe src="//www.slideshare.net/slideshow/embed_code/key/IJYS7Y7dB5MB4T" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;width: 100%" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hillert/high-precision-gps-positioning-for-spring-developers" title="High Precision GPS Positioning for Spring Developers" target="_blank">High Precision GPS Positioning for Spring Developers</a> </strong> from <strong><a href="https://www.slideshare.net/hillert" target="_blank">Gunnar Hillert</a></strong> </div>+++
+
+== Video Recording
+
+{{< youtube rVYcfmVywd4 >}}
+
+== Demo Code
+
+For the presentation, I prepared two presentations:
+
+- *GNSS NMEA Demo* https://github.com/ghillert/gnss-nmea-demo
+- *SpringOne 2020 Plants Demo* https://github.com/ghillert/s1-2020-plants-demo
+
+

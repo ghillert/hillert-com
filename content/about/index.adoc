@@ -21,6 +21,7 @@ As a full-stack software developer with 15 years of experience I have been build
 
 ## List of Presentations
 
+* **SpringOne 2020** High-Precision GPS Positioning for Spring Developers
 * **SpringOne Platform 2017** Migrating to Angular 5 for Spring Developers
 * **Atlanta Java Users Group 2015** https://www.slideshare.net/hillert/the-spring-update[The Spring Update]
 * **SpringOne2GX 2015** https://www.slideshare.net/hillert/s2gx2015-who-needs-batch[Who Needs Batch]
