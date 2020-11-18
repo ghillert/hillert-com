@@ -28,9 +28,11 @@ In September, I was presenting at https://springone.io/[SpringOne 2020] on the s
 
 == Demo Code
 
-For the presentation, I prepared two presentations:
+For the presentation, I prepared two demos:
 
 - *GNSS NMEA Demo* https://github.com/ghillert/gnss-nmea-demo
 - *SpringOne 2020 Plants Demo* https://github.com/ghillert/s1-2020-plants-demo
+
+The second demo is live at https://www.pembana.com.
 
 
