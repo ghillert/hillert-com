@@ -1,0 +1,83 @@
+---
+title: "From Spring's Resource to Micronaut's Readable"
+date: 2020-12-07
+description: "Spring Framework has the Resource abstraction that gives you a convenient way to load resources from the classpath (inside Jar files) or the filesystem in an implementaton-agnostic manner."
+draft: false
+tags: [
+    "java",
+    "micronaut",
+    "spring"
+]
+categories: ["technology"]
+images:
+  - src: blog/from-resource-to-readable/kailua-kona-coastline-2020-1760x560.jpg
+    alt: Kailua-Kona Coastline 2020
+    stretch: vertical
+---
+
+https://spring.io/projects/spring-framework[Spring Framework] has the https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/Resource.html[Resource] abstraction that gives you a convenient way to load resources from the classpath (inside Jar files) or the filesystem in an implementaton-agnostic manner, e.g.:
+
+- `classpath:some/amazing/resource/to-load.data`
+- `file:/some/cool/filesystem/resource.txt`
+
+Any object that can return _Resources_ needs to implement the https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ResourceLoader.html[ResourceLoader] interface. See the respective https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources[Spring documentation] for details on Spring's Resource abstraction.
+
+This abstraction is extremly convenient when your application provides any type of configurable data that needs to be part of the classpath (inside your executable Jar) and/or in the general file-system such as:
+
+- Default data
+- Demo data
+- Configuration files
+
+If your background is mostly in Spring, you will readily discover that Micronaut has the equivalent of Spring's ResourceLoder, 
+https://docs.micronaut.io/latest/api/io/micronaut/core/io/ResourceLoader.html[io.micronaut.core.io.ResourceLoader]. But what about the `Resource` interface? 
+
+== Readable to the rescue
+
+Micronaut provides the `io.micronaut.core.io.Readable` https://docs.micronaut.io/latest/api/io/micronaut/core/io/Readable.html[interface] that works similar and also provides an "Abstraction over File and URL based I/O". To illustrate how you can use Micronaut's `Readable`, I have created a quick demo hosted on GitHub:
+
+- https://github.com/ghillert/resource-readable-demo
+
+The super-simple demo has 2 REST endpoints:
+
+- `GET` http://localhost:8080/images/single (Returns a single image)
+- `GET` http://localhost:8080/images/random (From a collection of images a random image is returned)
+
+The used images are fully configurable via the `application.yml` file. By default the images are served
+from the classpath and as such are part of the generated Jar file using the `classpath:` prefix.
+
+[source,yaml]
+----
+micronaut:
+  application:
+    name: Loading Resources in Micronaut using Readable Demo
+images:
+  image-file: "classpath:images/bismarckia-nobilis.jpg"
+  # image-file: "file:/path/to/images/bismarckia-nobilis.jpg"
+  other-files:
+    - "classpath:images/bismarckia-nobilis.jpg"
+    - "classpath:images/bamboo.jpg"
+    - "classpath:images/hibiscus.jpg"
+----
+
+If you like to use images from the filesystem, simply provide those image paths prefixed with `file:`. 
+Additionally, you can also provide the paths to be used, e.g. via the command line:
+
+```bash
+java -jar target/resource-readable-demo-0.1.jar --images.image-file=file:/my/path/to/some/awesome-image.jpg
+```
+
+or
+
+```bash
+./mvnw mn:run -Dmn.appArgs="--images.image-file=file:/my/path/to/some/awesome-image.jpg"
+```
+
+In the app itself, you get access to the image data via my custom 
+https://github.com/ghillert/resource-readable-demo/blob/main/src/main/java/com/hillert/micronaut/config/ImageConfig.java[ImageConfig] class that is annotated with `@ConfigurationProperties`.
+
+The class provides `2` properties:
+
+- **Readable** imageFile
+- **List<Readable>** otherFiles
+
+You can then simply inject `ImageConfig` into my services and retrive the corresponding https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html[InputStream]. Mission accomplished!
