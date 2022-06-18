@@ -1,0 +1,194 @@
+---
+title: "Read & Write Image Metadata with Java—Part 1"
+date: 2022-06-13
+description: "In Part I we talk about the building blocks of metadata in images and how it may matter to you as developer."
+draft: false
+tags: [
+    "java",
+    "imageio",
+    "metadata",
+    "technology"
+]
+categories: ["technology"]
+images:
+  - src: blog/read-write-image-metadata-java-part-1/eugenia-brasiliensis-2022-1760x560.jpg
+    alt: Flowers of Eugenia brasiliensis (Brazilian cherry / grumichama)
+    stretch: vertical
+---
+
+Doing image (photo) metadata processing seems to be some serious voodoo magic. First, there is the alphabet soup to deal
+with such as _IPTC_, _XMP_, _EXIF_, _IIM_ etc. Then there is the cumbersome support in Java, as the metadata support in
+Java’s https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/javax/imageio/package-summary.html[ImageIO] is
+limited. Fortunately, there are several amazing open-source libraries available to patch those gaps. Which library to use
+also depends on your use-cases: Do you solely need to read metadata or is the writing of metadata essential for your
+business use-cases?
+
+In order to shed some light into this mess, I am doing a little mini-series. In this *first part*, I would like to
+examine the reasons of why image metadata may matter to you as application developer.
+
+== Why should I care?
+
+To be aware of the metadata in images is actually quite important, even if you don’t care about the metadata themselves.
+
+=== Normalizing uploaded image rotation
+
+Do all your app-users see your images with apps/components that handle the
+https://en.wikipedia.org/wiki/Exif[Exchangeable image file format] (Exif)
+https://exiftool.org/TagNames/EXIF.html[orientation tag] correctly? This is not so much an issue any longer in 2022, but
+in case you have custom apps that display images, or if you are dealing with legacy browsers etc., chances are that images
+may be displayed with an incorrect orientation. See the blog post
+https://www.david-merrick.com/2014/11/08/normalizing-uploaded-image-rotation-in-java/[Normalizing uploaded image rotation]
+for further information.
+
+=== Minimize unnecessary recompression of user images
+
+Your applications may allow users to upload images. In many scenarios you may have to do some form of resizing which
+involves recompressing the uploaded images. However, sometimes users upload good images; so if you do some analysis, you
+can minimize that requirement resulting in better image quality overall. E.g. if the dimensions fit, and the compression
+level is decent, why re-compress? Check out the article
+https://phototacopodcast.com/dimensions-and-quality-for-social-media-photo-sharing/[Dimensions and Quality For Social Media Photo Sharing]
+for further details.
+
+=== Privacy concerns
+
+Well, photos can contain _A LOT_ of metadata and some of that data may provide too much identifying information. Every
+cell phone typically records latitude & longitude information from the _Global Navigation Satellite System_ data (GNSS)
+in fairly high accuracy down to just a few meters. Detailed information on the used camera settings and the phone device
+may also be recorded. This may not necessarily be information you want to expose to the world. Thus, this may necessitate
+you to strip that information out.
+
+=== Legal Issues
+
+But hold on, depending on the jurisdiction you operate in, stripping certain metadata out of images might violate the
+law. See the https://petapixel.com/2020/05/20/squarespace-please-stop-stripping-copyright-data-from-our-photos/[following article]
+on _PetaPixel_ for more details.
+
+=== Size & Performance
+
+Image "metadata occupies 15.8% of the total image size on an average". That is the result of an analysis (from 2016)
+outlined in the article https://dexecure.com/blog/impact-of-metadata-on-image-performance/[Impact of metadata on Image Performance].
+Not only does this potentially waste precious data but may also negatively impact the user-experience as images may take
+longer to load and display, as "EXIF metadata appears before other information such as the frame containing the height
+and width of the image and the scans containing the image data itself".
+
+=== Search engine optimization (SEO)
+
+Does image metadata help with your search engine results? The answer to this question is a bit murky. Google may or may
+not use image metadata to assess rankings of images in search results. Check the following article:
+https://havecamerawilltravel.com/exif-metadata-images-google-search-rankings/[Does EXIF Metadata in Images Affect Google Search Rankings?].
+Google does though use copyright and licensing information. See the
+https://iptc.org/standards/photo-metadata/quick-guide-to-iptc-photo-metadata-and-google-images/[Quick guide to IPTC Photo
+Metadata and Google Images] for more details. Please also see Google’s own documentation on this matter:
+https://developers.google.com/search/docs/advanced/structured-data/image-license-metadata[Image License in Google Images].
+
+== Where is meta-data stored?
+
+This is where the alphabet soup starts. There are multiple locations inside an (JPEG) image where metadata can get stored.
+Most developers and (hobby-) photographers are probably aware of the first one:
+
+=== Exif
+
+The https://en.wikipedia.org/wiki/Exif[Exchangeable image file format] (Exif) dates back to 1995 and is mostly used by
+cameras/phones to store photo and camera settings as well as location data. Exif data can also include copyright information,
+the name of the creator, and a caption. However, _generally_ the Exif data is populated by the physical device and not by
+the user (via photo editing applications). The JPEG format defines several segments to store various kinds of data, such
+as the beginning (SOI) and end of the image (EOI), the actual image data, comment data (COM), but it also defines one or
+more application (APP) segments for application-specific data. The Exif data (up to 64kb) is stored (mostly) in the APP1
+segment. The Exif tag structure is derived from the TIFF image format. Therefore, exif data is literally a TIFF image
+stored inside a JPEG image. Some additional Exif metadata may also be stored in the comment data (COM) segment and the
+APP2 segment (by the https://exiftool.org/TagNames/FlashPix.html[flashPix extension]).
+
+=== IPTC
+
+As we have learned, Exif is typically populated by camera devices and contains mostly technical information. Then there
+is IPTC metadata, that describes the image itself and allows user-provided metadata to be added to images, for example
+via Adobe Photoshop or Adobe Lightroom. IPTC stands for _International Press Telecommunications Council_. IPTC and the
+Newspaper Association of America (NAA) (Yes, that old!) co-developed the Information Interchange Model (*IIM*) in 1990/1991.
+It “was the first multi-media news exchange format”. IIM metadata is stored in the
+https://dev.exiv2.org/projects/exiv2/wiki/The_Metadata_in_JPEG_files#23-IPTC[APP13 segment] of JPEG files.
+
+IPTC then created a defined set of metadata specific for images that is stored using IIM. This then also got adopted by
+Adobe to add https://dev.exiv2.org/projects/exiv2/wiki/The_Metadata_in_JPEG_files#23-IPTC[metadata in Photoshop] to
+images. For more information, please see the https://iptc.org/standards/iim/[IPTC website].
+
+=== XMP
+
+Adobe then https://www.adobe.com/devnet/xmp.html[adopted the IPTC metadata for XML]. The eXtensible Metadata Platform (XMP)
+is basically an XML schema (using the Resource Description Framework (RDF) as storage format) that defines the IPTC
+attributes in XML. XMP has be standardized and since 2012 is a maintained https://www.iso.org/standard/57421.html[ISO standard].
+
+== Maintain metadata in 2–3 places, oh my!
+
+What this means for you as developer is that image metadata can live in up-to three!! locations in your image. How this
+is supported across relevant image processing applications and/or operating systems is a bit fuzzy and in case of
+Windows bordering the bizarre as Carl Seibert describes in his article titled
+https://www.carlseibert.com/xmp-iptciim-or-exif-which-is-preferred/[XMP, IPTC/IIM, or Exif; which is preferred?] The
+article provides an impressive summary of how metadata are supported across applications and operating systems in regard
+to Exif, IIM and XMP.
+
+== How can I see the metadata?
+
+Every image application or operating system is using image metadata in some form or fashion. However, it is often
+confusing how the data relates to where it came from and even how the metadata property relates to what is shown in an
+image processing application such as Photoshop. Here is an example: what nowadays is often referred to as _Job Identifier_
+(Photoshop) is stored under the IPTC property _OriginalTransmissionReference_. Makes sense, doesn't it?
+
+The best (only?) comprehensive tool and reference for anything related to metadata is
+https://exiftool.org/[ExifTool]. On MacOS, the installation using https://brew.sh/[Homebrew] is as simple as:
+
+```bash
+$ brew install exiftool
+```
+
+Then you can introspect your image metadata. To get all metadata:
+
+```bash
+$ exiftool your-image.jpg
+```
+
+To get the XMP data:
+
+```bash
+$ exiftool your-image.jpg -xmp:all
+```
+
+To get the IPTC/IIM data:
+
+```bash
+$ exiftool your-image.jpg -iptc:all
+```
+
+To get the EXIF data:
+
+```bash
+$ exiftool your-image.jpg -exif:all
+```
+
+For much more detail information on the background, please see the wonderful blog post by Carl Seibert titled
+https://www.carlseibert.com/xmp-iptciim-or-exif-which-is-preferred/[XMP, IPTC/IIM, or Exif; which is preferred?].
+
+== What are my options with Java?
+
+Now that we have provided a very abbreviated theoretical overview, it is time to apply the knowledge practically, and to
+explore our options in Java.
+
+The good news is that you can get it all done using pure Java, meaning reading AND writing of image metadata. The bad
+news is that it gets a bit messy depending on what your use-cases are. If you’re interested in just reading metadata,
+you can probably stop reading this blog post right now — all you need is
+https://github.com/drewnoakes/metadata-extractor[metadata-extractor]. It is simple to use, supports every file format
+under the moon, basically the go-to library for reading metadata. Unfortunately,
+_metadata-extractor_ https://github.com/drewnoakes/metadata-extractor/issues/14[cannot write metadata].
+
+If you are interested in writing image metadata things get more messy, still. Writing the rather old-school EXIF and
+IIM/ITPC data is quite well supported using 3rd-party libraries such as https://github.com/haraldk/TwelveMonkeys[TwelveMonkeys]
+or https://commons.apache.org/proper/commons-imaging/[Apache Commons Imaging].
+
+Strangely enough, the modern option of XMP is rather complex to deal with.
+
+Adobe, originally, did in fact have an XMP Toolkit for Java many moons ago but apparently
+https://github.com/adobe/XMP-Toolkit-SDK/issues/5[decided to abandon it]. I was eventually able to add XMP data to my
+images using _Apache Commons Imaging_ in combination with https://xmlgraphics.apache.org/commons/[Apache XML Graphics Commons]
+(The name!). It is not perfect and support is a tad limited but at least it is possible.
+
+In the next installment I will explore and provide code example of for the different ways you can skin the metadata cat.
+Stay tuned!
